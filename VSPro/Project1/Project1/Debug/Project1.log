@@ -1,0 +1,99 @@
+﻿  addlist.cpp
+  admin.cpp
+C:\Users\Manjeet\Desktop\Data Structure\VSPro\Project1\Project1\addlist.cpp(5,12): error C2011: 'node': 'struct' type redefinition
+C:\Users\Manjeet\Desktop\Data Structure\VSPro\Project1\Project1\addlist.cpp(15): message : see declaration of 'node'
+C:\Users\Manjeet\Desktop\Data Structure\VSPro\Project1\Project1\addlist.cpp(14,14): error C2374: 'heada': redefinition; multiple initialization
+C:\Users\Manjeet\Desktop\Data Structure\VSPro\Project1\Project1\addlist.cpp(14): message : see declaration of 'heada'
+C:\Users\Manjeet\Desktop\Data Structure\VSPro\Project1\Project1\addlist.cpp(14,30): error C2374: 'taila': redefinition; multiple initialization
+C:\Users\Manjeet\Desktop\Data Structure\VSPro\Project1\Project1\addlist.cpp(14): message : see declaration of 'taila'
+C:\Users\Manjeet\Desktop\Data Structure\VSPro\Project1\Project1\addlist.cpp(15,14): error C2084: function 'node *menu(node *,int,char [],float)' already has a body
+C:\Users\Manjeet\Desktop\Data Structure\VSPro\Project1\Project1\addlist.cpp(15): message : see previous definition of 'menu'
+C:\Users\Manjeet\Desktop\Data Structure\VSPro\Project1\Project1\addlist.cpp(16,36): error C2027: use of undefined type 'node'
+C:\Users\Manjeet\Desktop\Data Structure\VSPro\Project1\Project1\addlist.cpp(15): message : see declaration of 'node'
+C:\Users\Manjeet\Desktop\Data Structure\VSPro\Project1\Project1\addlist.cpp(17,12): error C2027: use of undefined type 'node'
+C:\Users\Manjeet\Desktop\Data Structure\VSPro\Project1\Project1\addlist.cpp(15): message : see declaration of 'node'
+C:\Users\Manjeet\Desktop\Data Structure\VSPro\Project1\Project1\addlist.cpp(18,12): error C2027: use of undefined type 'node'
+C:\Users\Manjeet\Desktop\Data Structure\VSPro\Project1\Project1\addlist.cpp(15): message : see declaration of 'node'
+C:\Users\Manjeet\Desktop\Data Structure\VSPro\Project1\Project1\addlist.cpp(19,12): error C2027: use of undefined type 'node'
+C:\Users\Manjeet\Desktop\Data Structure\VSPro\Project1\Project1\addlist.cpp(15): message : see declaration of 'node'
+C:\Users\Manjeet\Desktop\Data Structure\VSPro\Project1\Project1\addlist.cpp(20,12): error C2027: use of undefined type 'node'
+C:\Users\Manjeet\Desktop\Data Structure\VSPro\Project1\Project1\addlist.cpp(15): message : see declaration of 'node'
+C:\Users\Manjeet\Desktop\Data Structure\VSPro\Project1\Project1\addlist.cpp(21,21): error C2027: use of undefined type 'node'
+C:\Users\Manjeet\Desktop\Data Structure\VSPro\Project1\Project1\addlist.cpp(15): message : see declaration of 'node'
+C:\Users\Manjeet\Desktop\Data Structure\VSPro\Project1\Project1\addlist.cpp(21,41): error C2660: 'strcpy_s': function does not take 2 arguments
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.18362.0\ucrt\string.h(28,30): message : see declaration of 'strcpy_s'
+C:\Users\Manjeet\Desktop\Data Structure\VSPro\Project1\Project1\addlist.cpp(29,20): error C2027: use of undefined type 'node'
+C:\Users\Manjeet\Desktop\Data Structure\VSPro\Project1\Project1\addlist.cpp(15): message : see declaration of 'node'
+C:\Users\Manjeet\Desktop\Data Structure\VSPro\Project1\Project1\addlist.cpp(31,24): error C2027: use of undefined type 'node'
+C:\Users\Manjeet\Desktop\Data Structure\VSPro\Project1\Project1\addlist.cpp(15): message : see declaration of 'node'
+C:\Users\Manjeet\Desktop\Data Structure\VSPro\Project1\Project1\addlist.cpp(33,13): error C2027: use of undefined type 'node'
+C:\Users\Manjeet\Desktop\Data Structure\VSPro\Project1\Project1\addlist.cpp(15): message : see declaration of 'node'
+C:\Users\Manjeet\Desktop\Data Structure\VSPro\Project1\Project1\addlist.cpp(34,16): error C2027: use of undefined type 'node'
+C:\Users\Manjeet\Desktop\Data Structure\VSPro\Project1\Project1\addlist.cpp(15): message : see declaration of 'node'
+C:\Users\Manjeet\Desktop\Data Structure\VSPro\Project1\Project1\addlist.cpp(40,6): error C2084: function 'void addlist(void)' already has a body
+C:\Users\Manjeet\Desktop\Data Structure\VSPro\Project1\Project1\addlist.cpp(40): message : see previous definition of 'addlist'
+C:\Users\Manjeet\Desktop\Data Structure\VSPro\Project1\Project1\addlist.cpp(45,13): error C2065: 'menu': undeclared identifier
+C:\Users\Manjeet\Desktop\Data Structure\VSPro\Project1\Project1\addlist.cpp(45,45): error C2568: '=': unable to resolve function overload
+C:\Users\Manjeet\Desktop\Data Structure\VSPro\Project1\Project1\addlist.cpp(45,45): message : could be 'node *menu(node *,int,char [],float)'
+C:\Users\Manjeet\Desktop\Data Structure\VSPro\Project1\Project1\addlist.cpp(46,13): error C2065: 'menu': undeclared identifier
+C:\Users\Manjeet\Desktop\Data Structure\VSPro\Project1\Project1\addlist.cpp(46,47): error C2568: '=': unable to resolve function overload
+C:\Users\Manjeet\Desktop\Data Structure\VSPro\Project1\Project1\addlist.cpp(46,47): message : could be 'node *menu(node *,int,char [],float)'
+C:\Users\Manjeet\Desktop\Data Structure\VSPro\Project1\Project1\viewlist.cpp(16,30): error C2027: use of undefined type 'node'
+C:\Users\Manjeet\Desktop\Data Structure\VSPro\Project1\Project1\addlist.cpp(15): message : see declaration of 'node'
+C:\Users\Manjeet\Desktop\Data Structure\VSPro\Project1\Project1\viewlist.cpp(16,52): error C2027: use of undefined type 'node'
+C:\Users\Manjeet\Desktop\Data Structure\VSPro\Project1\Project1\addlist.cpp(15): message : see declaration of 'node'
+C:\Users\Manjeet\Desktop\Data Structure\VSPro\Project1\Project1\viewlist.cpp(16,78): error C2027: use of undefined type 'node'
+C:\Users\Manjeet\Desktop\Data Structure\VSPro\Project1\Project1\addlist.cpp(15): message : see declaration of 'node'
+C:\Users\Manjeet\Desktop\Data Structure\VSPro\Project1\Project1\viewlist.cpp(17,24): error C2027: use of undefined type 'node'
+C:\Users\Manjeet\Desktop\Data Structure\VSPro\Project1\Project1\addlist.cpp(15): message : see declaration of 'node'
+C:\Users\Manjeet\Desktop\Data Structure\VSPro\Project1\Project1\admin.cpp(30,9): error C2065: 'addlist': undeclared identifier
+  mainpage.cpp
+C:\Users\Manjeet\Desktop\Data Structure\VSPro\Project1\Project1\addlist.cpp(5,12): error C2011: 'node': 'struct' type redefinition
+C:\Users\Manjeet\Desktop\Data Structure\VSPro\Project1\Project1\addlist.cpp(15): message : see declaration of 'node'
+C:\Users\Manjeet\Desktop\Data Structure\VSPro\Project1\Project1\addlist.cpp(14,14): error C2374: 'heada': redefinition; multiple initialization
+C:\Users\Manjeet\Desktop\Data Structure\VSPro\Project1\Project1\addlist.cpp(14): message : see declaration of 'heada'
+C:\Users\Manjeet\Desktop\Data Structure\VSPro\Project1\Project1\addlist.cpp(14,30): error C2374: 'taila': redefinition; multiple initialization
+C:\Users\Manjeet\Desktop\Data Structure\VSPro\Project1\Project1\addlist.cpp(14): message : see declaration of 'taila'
+C:\Users\Manjeet\Desktop\Data Structure\VSPro\Project1\Project1\addlist.cpp(15,14): error C2084: function 'node *menu(node *,int,char [],float)' already has a body
+C:\Users\Manjeet\Desktop\Data Structure\VSPro\Project1\Project1\addlist.cpp(15): message : see previous definition of 'menu'
+C:\Users\Manjeet\Desktop\Data Structure\VSPro\Project1\Project1\addlist.cpp(16,36): error C2027: use of undefined type 'node'
+C:\Users\Manjeet\Desktop\Data Structure\VSPro\Project1\Project1\addlist.cpp(15): message : see declaration of 'node'
+C:\Users\Manjeet\Desktop\Data Structure\VSPro\Project1\Project1\addlist.cpp(17,12): error C2027: use of undefined type 'node'
+C:\Users\Manjeet\Desktop\Data Structure\VSPro\Project1\Project1\addlist.cpp(15): message : see declaration of 'node'
+C:\Users\Manjeet\Desktop\Data Structure\VSPro\Project1\Project1\addlist.cpp(18,12): error C2027: use of undefined type 'node'
+C:\Users\Manjeet\Desktop\Data Structure\VSPro\Project1\Project1\addlist.cpp(15): message : see declaration of 'node'
+C:\Users\Manjeet\Desktop\Data Structure\VSPro\Project1\Project1\addlist.cpp(19,12): error C2027: use of undefined type 'node'
+C:\Users\Manjeet\Desktop\Data Structure\VSPro\Project1\Project1\addlist.cpp(15): message : see declaration of 'node'
+C:\Users\Manjeet\Desktop\Data Structure\VSPro\Project1\Project1\addlist.cpp(20,12): error C2027: use of undefined type 'node'
+C:\Users\Manjeet\Desktop\Data Structure\VSPro\Project1\Project1\addlist.cpp(15): message : see declaration of 'node'
+C:\Users\Manjeet\Desktop\Data Structure\VSPro\Project1\Project1\addlist.cpp(21,21): error C2027: use of undefined type 'node'
+C:\Users\Manjeet\Desktop\Data Structure\VSPro\Project1\Project1\addlist.cpp(15): message : see declaration of 'node'
+C:\Users\Manjeet\Desktop\Data Structure\VSPro\Project1\Project1\addlist.cpp(21,41): error C2660: 'strcpy_s': function does not take 2 arguments
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.18362.0\ucrt\string.h(28,30): message : see declaration of 'strcpy_s'
+C:\Users\Manjeet\Desktop\Data Structure\VSPro\Project1\Project1\addlist.cpp(29,20): error C2027: use of undefined type 'node'
+C:\Users\Manjeet\Desktop\Data Structure\VSPro\Project1\Project1\addlist.cpp(15): message : see declaration of 'node'
+C:\Users\Manjeet\Desktop\Data Structure\VSPro\Project1\Project1\addlist.cpp(31,24): error C2027: use of undefined type 'node'
+C:\Users\Manjeet\Desktop\Data Structure\VSPro\Project1\Project1\addlist.cpp(15): message : see declaration of 'node'
+C:\Users\Manjeet\Desktop\Data Structure\VSPro\Project1\Project1\addlist.cpp(33,13): error C2027: use of undefined type 'node'
+C:\Users\Manjeet\Desktop\Data Structure\VSPro\Project1\Project1\addlist.cpp(15): message : see declaration of 'node'
+C:\Users\Manjeet\Desktop\Data Structure\VSPro\Project1\Project1\addlist.cpp(34,16): error C2027: use of undefined type 'node'
+C:\Users\Manjeet\Desktop\Data Structure\VSPro\Project1\Project1\addlist.cpp(15): message : see declaration of 'node'
+C:\Users\Manjeet\Desktop\Data Structure\VSPro\Project1\Project1\addlist.cpp(40,6): error C2084: function 'void addlist(void)' already has a body
+C:\Users\Manjeet\Desktop\Data Structure\VSPro\Project1\Project1\addlist.cpp(40): message : see previous definition of 'addlist'
+C:\Users\Manjeet\Desktop\Data Structure\VSPro\Project1\Project1\addlist.cpp(45,13): error C2065: 'menu': undeclared identifier
+C:\Users\Manjeet\Desktop\Data Structure\VSPro\Project1\Project1\addlist.cpp(45,45): error C2568: '=': unable to resolve function overload
+C:\Users\Manjeet\Desktop\Data Structure\VSPro\Project1\Project1\addlist.cpp(45,45): message : could be 'node *menu(node *,int,char [],float)'
+C:\Users\Manjeet\Desktop\Data Structure\VSPro\Project1\Project1\addlist.cpp(46,13): error C2065: 'menu': undeclared identifier
+C:\Users\Manjeet\Desktop\Data Structure\VSPro\Project1\Project1\addlist.cpp(46,47): error C2568: '=': unable to resolve function overload
+C:\Users\Manjeet\Desktop\Data Structure\VSPro\Project1\Project1\addlist.cpp(46,47): message : could be 'node *menu(node *,int,char [],float)'
+C:\Users\Manjeet\Desktop\Data Structure\VSPro\Project1\Project1\viewlist.cpp(16,30): error C2027: use of undefined type 'node'
+C:\Users\Manjeet\Desktop\Data Structure\VSPro\Project1\Project1\addlist.cpp(15): message : see declaration of 'node'
+C:\Users\Manjeet\Desktop\Data Structure\VSPro\Project1\Project1\viewlist.cpp(16,52): error C2027: use of undefined type 'node'
+C:\Users\Manjeet\Desktop\Data Structure\VSPro\Project1\Project1\addlist.cpp(15): message : see declaration of 'node'
+C:\Users\Manjeet\Desktop\Data Structure\VSPro\Project1\Project1\viewlist.cpp(16,78): error C2027: use of undefined type 'node'
+C:\Users\Manjeet\Desktop\Data Structure\VSPro\Project1\Project1\addlist.cpp(15): message : see declaration of 'node'
+C:\Users\Manjeet\Desktop\Data Structure\VSPro\Project1\Project1\viewlist.cpp(17,24): error C2027: use of undefined type 'node'
+C:\Users\Manjeet\Desktop\Data Structure\VSPro\Project1\Project1\addlist.cpp(15): message : see declaration of 'node'
+C:\Users\Manjeet\Desktop\Data Structure\VSPro\Project1\Project1\admin.cpp(30,9): error C2065: 'addlist': undeclared identifier
+  viewlist.cpp
+  Generating Code...
