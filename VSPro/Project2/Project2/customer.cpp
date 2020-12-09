@@ -1,10 +1,13 @@
 #include<iostream>
 #include <stdlib.h>
 #include<cstring>
+#include<iomanip>
 #include<string.h>
 using namespace std;
+void admin();
 void customer_main();
 //void searchFood();
+void topbar();
 void order_main();
 int main();
 
@@ -210,8 +213,9 @@ void inOrder(AVLNode* root)
     if (root != NULL)
     {
         inOrder(root->left);
-        cout << root->food << " ";
-        cout << root->key << " ";
+
+        cout <<" \n \t \t"<<root->food << " ";
+        cout << root->key << " \n";
 
         inOrder(root->right);
     }
@@ -263,6 +267,7 @@ order* heado = NULL, * tailo = NULL;
 
 void searchFood(AVLNode* root) {
     char foodSearch[20];
+    topbar();
     std::cout<<"Enter foodname to be searched: ";
     std::cin>>foodSearch;
     struct order* temp;
@@ -279,8 +284,12 @@ void searchFood(AVLNode* root) {
         while (temp != NULL)
         {
             if(!strcmp(temp->foodname,foodSearch))
-                std::cout << temp->foodname << "\t"<< temp->price << "\t" <<std::endl;
-            temp = temp->next;
+                {std::cout << temp->foodname << "\t"<< temp->price << "\t" <<std::endl;}
+            else
+            {
+                temp = temp->next;
+            }
+
         }
         customer_main();
         //addAdminOrder(temp);
@@ -294,11 +303,27 @@ void displayOrder(struct order* head) {
 
     if (temp == NULL)
     {
-        std::cout << "List EMPTY" << std::endl;
+        topbar();
+        int option;
+        std::cout << "\n \n \t\t\t There Is No Order." << std::endl;
+        std::cout<<"\n \n \t \t \t \t \t \t \t \t***";
+        std::cout << "\n \n \t\t\t Where would you like to go :." << std::endl;
+        std::cout<<"\n \n\t \t \t 1. Main menu";
+        std::cout<<"\n \n\t \t \t 2. Outside \n";
+        std::cout<<"\n \n\t \t \t";
+        std::cin>>option;
+        switch(option)
+        {
+        case 1:
+            admin();
+        case 2:
+            break;
+        }
     }
     else
     {
         int order_num = 1;
+        topbar();
         std::cout<<"Customer "<<order_num<<std::endl;
         while (temp != NULL)
         {
@@ -318,11 +343,13 @@ order* createOrder(AVLNode* root)
         return 0;
     else if (root != NULL)
     {
+        ;
         createOrder(root->left);
         //root=root->left;
-        std::cout << root->food << " ";
+
         int q;
-        std::cout << "Enter Quantity";
+        std::cout << "\n \t \tEnter Quantity of ";
+        std::cout << root->food << "\t ";
         std::cin >> q;
         order* newnode = new order;
         newnode->quantity = q;
@@ -360,13 +387,17 @@ order* createOrder(AVLNode* root)
 
 void order_main()
 {
+    system("CLS");
+    topbar();
     AVLNode* root = NULL;
     char food_Momo[] = "MO:MO";
-    char food_Burger[] = "Burger";
+    char food_Burger[] = "burger";
     char food_ABC[] = "ABC";
     root = insert(root, 100, food_Momo);
-    root = insert(root, 300, food_Burger);
     root = insert(root, 200, food_ABC);
+    root = insert(root, 300, food_Burger);
+    std::cout<<"\n \n";
+    std::cout<<"\t \t \t "<<std::setfill(' ')<<std::setw(34)<<"Today's Menu"<<std::endl;
     inOrder(root);
     std::cout << std::endl;
     createOrder(root);
@@ -377,11 +408,12 @@ AVLNode* root = NULL;
 void main_menu()
 {
     char food_Momo[] = "MO:MO";
-    char food_Burger[] = "Burger";
+    char food_Burger[] = "burger";
     char food_ABC[] = "ABC";
     root = insert(root, 100, food_Momo);
-    root = insert(root, 300, food_Burger);
     root = insert(root, 200, food_ABC);
+    root = insert(root, 300, food_Burger);
+
     //inOrder(root);
     //std::cout << std::endl;
     //createOrder(root);
@@ -392,12 +424,16 @@ void main_menu()
 void customer_main(){
     int choice;
     main_menu();
-    cout<<"To search food, enter 1"<<endl;
-    cout<<"To order food enter 2"<<endl;
-    cout<<"Enter choice: ";
+    std::cout<<"\t \t \t"<<std::setfill('*')<<std::setw(74)<<""<<std::endl;
+    std::cout<<"\t \t \t** \t \tWelcome to Restaurant"<<setfill(' ')<<setw(38)<<"**\n";
+    std::cout<<"\t \t \t"<<std::setfill('*')<<std::setw(74)<<""<<std::endl;
+    cout<<"\n \n\t \t \t 1. Search Food:"<<endl;
+    cout<<"\n \n\t \t \t 2. Order Food"<<endl;
+    cout<<"\n \t \t \tEnter choice: ";
     cin>>choice;
     switch(choice){
     case 1:
+        system("CLS");
         searchFood(root);
         break;
     case 2:

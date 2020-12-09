@@ -1,6 +1,7 @@
 #include<iostream>
 #include <stdlib.h>
 #include<cstring>
+#include<iomanip>
 #include"customer.cpp"
 using namespace std;
 //struct order* createorder(struct node*);
@@ -224,22 +225,29 @@ struct order* createorder(struct node* head)
 //            temp = temp->next;
 //        }
 //
-//    }
+//
 //
 //
 //}
+void topbar()
+{
+    std::cout<<"\t \t \t"<<std::setfill('*')<<std::setw(74)<<""<<std::endl;
+    std::cout<<"\t \t \t** \t \tWelcome to Restaurant"<<setfill(' ')<<setw(38)<<"**\n";
+    std::cout<<"\t \t \t"<<std::setfill('*')<<std::setw(74)<<""<<std::endl;
+}
+
 void mainpage()
 {
-    std::cout << "Welcome to restaurant management system \n";
-    std::cout << "1. Admin\n";
-    std::cout << "2. Customer\n";
-
+    std::cout<<"\t \t \t"<<std::setfill('*')<<std::setw(74)<<""<<std::endl;
+    std::cout<<"\t \t \t** \t \tWelcome to restaurant management system \t\t**\n";
+    std::cout<<"\t \t \t"<<std::setfill('*')<<std::setw(74)<<""<<std::endl;
 }
 void admindisplay()
 {
-    cout << "Welcome to restaurant management system \n";
-    cout << "1. View Oders.\n";
-    cout << "2. Delete Oders.\n";
+    system("CLS");
+    topbar();
+    cout << "\n \n\t \t \t1. View Oders.\n";
+    cout << "\n \n\t \t \t2. Delete Oders.\n";
     //cout << "3. Add Oders.\n";
 
 }
@@ -288,11 +296,12 @@ void admin()
 
     int option;
     int data_elem;
-    cout << "What would you like to do:  ";
+    cout << "\n \n \t \tWhat would you like to do:  ";
     cin >> option;
     switch (option)
     {
     case 1:
+        system("CLS");
         displayOrder(heado);
         break;
     case 2:
@@ -300,7 +309,7 @@ void admin()
         cin >> data_elem;
         //deleteorder(heado, data_elem);
         admin();
-        break;
+
     /*case 3:
         //addlist();
         admin();
@@ -318,15 +327,20 @@ int main()
 {
     int option;
     mainpage();
-    cout << "What do you want to Log-In as:  ";
+    cout << "\n \n \t \t Login As:  ";
+    cout<<"\n \n\t \t \t 1. Admin \n";
+    cout<<"\n\t \t \t 2. Customer\n";
+    cout<<"\t \t \t";
     cin >> option;
     switch (option)
     {
     case 1:
+        system("CLS");
         admin();
         break;
 
     case 2:
+        system("CLS");
         customer_main();
         break;
 
