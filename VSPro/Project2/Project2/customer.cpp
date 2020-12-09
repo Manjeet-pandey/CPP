@@ -3,15 +3,20 @@
 #include<cstring>
 #include<string.h>
 using namespace std;
-void customer_main();
-//void searchFood();
-void order_main();
+void searchFood(); //line 243
+void order_main(); //line 354
 int main();
+void main_menu(); //line 373
+void customer_main(); //line 385
+//void foodDisplayOrder(); //line 253
+void foodSearchOrder(); //line 228
+int totalOrder = 0; //line 321
 
 struct order {
     int quantity;
     char foodname[20];
     float price;
+    int orderNumber;
     order* prev;
     order* next;
 };
@@ -23,7 +28,8 @@ class AVLNode
 {
 public:
     int key;
-    //float priceNode;
+    int nodeNumber;
+    int quantity;
     AVLNode* left;
     AVLNode* right;
     int depth;
@@ -91,6 +97,7 @@ int getBalance(AVLNode* N)
     return depth(N->left) -
         depth(N->right);
 }
+
 AVLNode* insert(AVLNode* node, int key, char foodname[20]) {
     if (node == NULL)
     {
@@ -139,6 +146,7 @@ AVLNode* minValueNode(AVLNode* node)
 
     return current;
 }
+
 AVLNode* deleteNode(AVLNode* root, int key)
 {
     if (root == NULL)
@@ -205,6 +213,7 @@ AVLNode* deleteNode(AVLNode* root, int key)
     }
     return root;
 }
+
 void inOrder(AVLNode* root)
 {
     if (root != NULL)
@@ -216,48 +225,19 @@ void inOrder(AVLNode* root)
         inOrder(root->right);
     }
 }
-void Next(AVLNode* root)
+
+void foodSearchOrder(AVLNode* root, char foodSearch[20])
 {
+     AVLNode* temp = new AVLNode;
     if (root != NULL)
     {
-        Next(root->left);
-        Next(root->right);
+        temp = root;
+        foodSearchOrder(root->left, foodSearch);
+        if(!strcmp(temp->food,foodSearch))
+            std::cout << temp->food << "\t"<< temp->key << "\t" <<std::endl;
+        foodSearchOrder(root->right, foodSearch);
     }
 }
-/*
-void createOrder(AVLNode* root)
-{
-    if (root != NULL)
-    {
-        createOrder(root->left);
-        cout<<root->food<<" ";
-        int q;
-        cout<<"Enter Quantity";
-        cin>>q;
-        order* newnode = new order;
-        newnode->quantity=q;
-        newnode->price=root->key;
-        strcpy(newnode->foodname,root->food);
-        order* temp = heado;
-
-    if (temp == NULL){
-        heada = taila = newnode;
-    }
-    else{
-        while (temp->next != NULL)
-        {
-            temp = temp->next;
-        }
-        temp->next = newnode;
-        newnode->prev = taila;
-        taila = newnode;
-    }
-
-
-        createOrder(root->right);
-    }
-}
-*/
 
 order* heado = NULL, * tailo = NULL;
 
@@ -265,52 +245,82 @@ void searchFood(AVLNode* root) {
     char foodSearch[20];
     std::cout<<"Enter foodname to be searched: ";
     std::cin>>foodSearch;
-    struct order* temp;
-    strcpy(temp->foodname,root->food);
-    temp->price = root->key;
-    //struct order* temp1 = NULL;
+    foodSearchOrder(root, foodSearch);
+    main();
+};
 
+/*void foodDisplayOrder(AVLNode* root)
+{
+     AVLNode* temp = new AVLNode;
+    if (root != NULL)
+    {
+        temp = root;
+        cout<<"Customer"<<root->nodeNumber<<endl;
+        foodDisplayOrder(root->left);
+        std::cout << temp->food << "\t"<< temp->key << "\t" << temp->quantity<<"\t"<<temp->quantity*temp->key<<"\t"<<std::endl;
+        foodDisplayOrder(root->right);
+    }
+}*/
+
+void displayAdminOrder( order* heado) {
+    struct order* temp = heado;
     if (temp == NULL)
     {
         std::cout << "List EMPTY" << std::endl;
     }
     else
     {
+        int num = 0;
+        //std::cout<<"Customer "<<temp->orderNumber<<std::endl;
         while (temp != NULL)
         {
-            if(!strcmp(temp->foodname,foodSearch))
-                std::cout << temp->foodname << "\t"<< temp->price << "\t" <<std::endl;
+            if(!strcmp(temp->foodname,"MOMO"))
+                std::cout<<"Customer "<<temp->orderNumber<<std::endl;
+            std::cout << temp->orderNumber<<"\t"<<temp->foodname << "\t" << temp->price << "\t" << temp->quantity << "\t" << temp->price * temp->quantity << std::endl;
             temp = temp->next;
         }
-        customer_main();
-        //addAdminOrder(temp);
+
 
     }
 };
 
-void displayOrder(struct order* head) {
-    struct order* temp = head;
-    //struct order* temp1 = NULL;
-
-    if (temp == NULL)
+void displayCustomerOrder(AVLNode* root) {
+    AVLNode* temp = root;
+    if (temp != NULL)
     {
-        std::cout << "List EMPTY" << std::endl;
-    }
-    else
-    {
-        int order_num = 1;
-        std::cout<<"Customer "<<order_num<<std::endl;
-        while (temp != NULL)
+        if(temp != NULL)
         {
-            std::cout << temp->foodname << "\t" << temp->price << "\t" << temp->quantity << "\t" << temp->price * temp->quantity << std::endl;
-            temp = temp->next;
+            displayCustomerOrder(root->left);
+            std::cout << temp->food << "\t" << temp->key << "\t" << temp->quantity << "\t" << temp->key * temp->quantity << std::endl;
+            displayCustomerOrder(root->right);
         }
-        order_num++;
-
-        //addAdminOrder(temp);
-
     }
 };
+
+void deleteOrder(order* heado, int customer_number){
+    order* temp = heado;
+    while(temp->orderNumber!=customer_number ){
+        temp = temp->next;
+    }
+    for(int i=0;i<3;i++){
+        if(temp->orderNumber==customer_number){
+            temp->prev->next = temp->next;
+            temp->next->prev = temp->prev;
+            temp=temp->next;
+            free(temp);
+    }}
+        /*if(temp->orderNumber==customer_number){
+            temp->prev->next = temp->next;
+            temp->next->prev = temp->prev;
+            free(temp);
+        }*/
+
+        //if(temp->orderNumber==temp->next->orderNumber)
+            //deleteOrder(temp->next, customer_number);
+    //cout<<"\bUpdated order"<<endl;
+    //displayAdminOrder(heado);
+
+}
 
 order* createOrder(AVLNode* root)
 {
@@ -320,13 +330,17 @@ order* createOrder(AVLNode* root)
     {
         createOrder(root->left);
         //root=root->left;
-        std::cout << root->food << " ";
-        int q;
-        std::cout << "Enter Quantity";
-        std::cin >> q;
+        std::cout << root->food << "\t";
+        //int q;
+        std::cout << "Enter Quantity: ";
+        std::cin >> root->quantity;
+        root->nodeNumber = totalOrder;
         order* newnode = new order;
-        newnode->quantity = q;
+        newnode->quantity = root->quantity;
         newnode->price = root->key;
+        newnode->orderNumber = root->nodeNumber;
+        //cout<<"Order Number: "<<newnode->orderNumber<<std::endl;
+        //cout<<"Node nUmber: "<<root->nodeNumber<<std::endl;
         strcpy(newnode->foodname, root->food);
         order* temp = heado;
 
@@ -334,10 +348,6 @@ order* createOrder(AVLNode* root)
             heado = tailo = newnode;
         }
         else {
-            /*while (temp->next != NULL)
-            {
-                temp = temp->next;
-            }*/
             while (temp->next != NULL)
                 temp = temp->next;
             temp->next = newnode;
@@ -346,47 +356,40 @@ order* createOrder(AVLNode* root)
         }
         createOrder(root->right);
     }
-
     return heado;
 }
-
-/*void Order()
-{
-    AVLNode* root = NULL;
-    createorder(root);
-}
-*/
-
 
 void order_main()
 {
     AVLNode* root = NULL;
-    char food_Momo[] = "MO:MO";
-    char food_Burger[] = "Burger";
+    char food_Momo[] = "MOMO";
+    char food_Burger[] = "BURGER";
     char food_ABC[] = "ABC";
+    char food_Pizza[]= "PIZZA";
     root = insert(root, 100, food_Momo);
     root = insert(root, 300, food_Burger);
     root = insert(root, 200, food_ABC);
+    //root = insert(root, 500, food_Pizza);
     inOrder(root);
     std::cout << std::endl;
+    totalOrder++;
+    std::cout<<"Customer No."<<totalOrder<<std::endl;
     createOrder(root);
-    displayOrder(heado);
+    std::cout<<"Customer No."<<totalOrder<<std::endl;
+    displayCustomerOrder(root);
     main();
 }
 AVLNode* root = NULL;
 void main_menu()
 {
-    char food_Momo[] = "MO:MO";
-    char food_Burger[] = "Burger";
+    char food_Momo[] = "MOMO";
+    char food_Burger[] = "BURGER";
     char food_ABC[] = "ABC";
+    char food_Pizza[]= "PIZZA";
     root = insert(root, 100, food_Momo);
     root = insert(root, 300, food_Burger);
     root = insert(root, 200, food_ABC);
-    //inOrder(root);
-    //std::cout << std::endl;
-    //createOrder(root);
-    //displayOrder(heado);
-    //main();
+    //root = insert(root, 500, food_Pizza);
 }
 
 void customer_main(){
