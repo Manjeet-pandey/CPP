@@ -1,3 +1,0 @@
-﻿  mainpage.cpp
-D:\DSA Project\cpp\VSPro\Project2\Project2\customer.cpp(286,30): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-  Project2.vcxproj -> D:\DSA Project\cpp\VSPro\Project2\Debug\Project2.exe
