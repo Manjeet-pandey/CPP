@@ -1,12 +1,29 @@
 #include<iostream>
 #include <stdlib.h>
 #include<cstring>
+#include<string.h>
 using namespace std;
+void customer_main();
+//void searchFood();
+void order_main();
+int main();
+
+struct order {
+    int quantity;
+    char foodname[20];
+    float price;
+    order* prev;
+    order* next;
+};
+
+struct order* orderArray[20];
+int orderNumber = 0;
 
 class AVLNode
 {
 public:
     int key;
+    //float priceNode;
     AVLNode* left;
     AVLNode* right;
     int depth;
@@ -27,7 +44,7 @@ AVLNode* newNode(int key, char foodname[20]) //this function needs update
 {
     AVLNode* node = new AVLNode();
     node->key = key;
-    strcpy_s(node->food, foodname);
+    strcpy(node->food, foodname);
     node->left = NULL;
     node->right = NULL;
     node->depth = 1;
@@ -241,34 +258,60 @@ void createOrder(AVLNode* root)
     }
 }
 */
-struct order {
-    int quantity;
-    char foodname[20];
-    float price;
-    order* prev;
-    order* next;
-};
+
 order* heado = NULL, * tailo = NULL;
-void displayOrder(struct order* head) {
-    struct order* temp = head;
-    struct order* temp1 = NULL;
+
+void searchFood(AVLNode* root) {
+    char foodSearch[20];
+    std::cout<<"Enter foodname to be searched: ";
+    std::cin>>foodSearch;
+    struct order* temp;
+    strcpy(temp->foodname,root->food);
+    temp->price = root->key;
+    //struct order* temp1 = NULL;
 
     if (temp == NULL)
     {
-        std::cout << "List EMpty" << std::endl;
+        std::cout << "List EMPTY" << std::endl;
     }
     else
     {
         while (temp != NULL)
         {
+            if(!strcmp(temp->foodname,foodSearch))
+                std::cout << temp->foodname << "\t"<< temp->price << "\t" <<std::endl;
+            temp = temp->next;
+        }
+        customer_main();
+        //addAdminOrder(temp);
+
+    }
+};
+
+void displayOrder(struct order* head) {
+    struct order* temp = head;
+    //struct order* temp1 = NULL;
+
+    if (temp == NULL)
+    {
+        std::cout << "List EMPTY" << std::endl;
+    }
+    else
+    {
+        int order_num = 1;
+        std::cout<<"Customer "<<order_num<<std::endl;
+        while (temp != NULL)
+        {
             std::cout << temp->foodname << "\t" << temp->price << "\t" << temp->quantity << "\t" << temp->price * temp->quantity << std::endl;
             temp = temp->next;
         }
+        order_num++;
+
+        //addAdminOrder(temp);
 
     }
-
-
 };
+
 order* createOrder(AVLNode* root)
 {
     if (root == NULL)
@@ -277,14 +320,14 @@ order* createOrder(AVLNode* root)
     {
         createOrder(root->left);
         //root=root->left;
-        cout << root->food << " ";
+        std::cout << root->food << " ";
         int q;
-        cout << "Enter Quantity";
-        cin >> q;
+        std::cout << "Enter Quantity";
+        std::cin >> q;
         order* newnode = new order;
         newnode->quantity = q;
         newnode->price = root->key;
-        strcpy_s(newnode->foodname, root->food);
+        strcpy(newnode->foodname, root->food);
         order* temp = heado;
 
         if (temp == NULL) {
@@ -313,7 +356,9 @@ order* createOrder(AVLNode* root)
     createorder(root);
 }
 */
-void customer_main()
+
+
+void order_main()
 {
     AVLNode* root = NULL;
     char food_Momo[] = "MO:MO";
@@ -323,7 +368,44 @@ void customer_main()
     root = insert(root, 300, food_Burger);
     root = insert(root, 200, food_ABC);
     inOrder(root);
-    cout << endl;
+    std::cout << std::endl;
     createOrder(root);
     displayOrder(heado);
+    main();
 }
+AVLNode* root = NULL;
+void main_menu()
+{
+    char food_Momo[] = "MO:MO";
+    char food_Burger[] = "Burger";
+    char food_ABC[] = "ABC";
+    root = insert(root, 100, food_Momo);
+    root = insert(root, 300, food_Burger);
+    root = insert(root, 200, food_ABC);
+    //inOrder(root);
+    //std::cout << std::endl;
+    //createOrder(root);
+    //displayOrder(heado);
+    //main();
+}
+
+void customer_main(){
+    int choice;
+    main_menu();
+    cout<<"To search food, enter 1"<<endl;
+    cout<<"To order food enter 2"<<endl;
+    cout<<"Enter choice: ";
+    cin>>choice;
+    switch(choice){
+    case 1:
+        searchFood(root);
+        break;
+    case 2:
+        order_main();
+        break;
+    default:
+        cout<<"Re-evaluate your choice"<<endl;
+        customer_main();
+    }
+}
+

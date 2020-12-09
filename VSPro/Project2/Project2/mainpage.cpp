@@ -17,7 +17,7 @@ struct node* createadmin(struct node* head, int data, char foodname[20], float p
     newnode->data = data;
     newnode->price = price;
     newnode->next = NULL;
-    strcpy_s(newnode->foodname, foodname);
+    strcpy(newnode->foodname, foodname);
 
     struct node* temp = head;
 
@@ -230,9 +230,9 @@ struct order* createorder(struct node* head)
 //}
 void mainpage()
 {
-    cout << "Welcome to restaurant management system \n";
-    cout << "1. Admin\n";
-    cout << "2. Customer\n";
+    std::cout << "Welcome to restaurant management system \n";
+    std::cout << "1. Admin\n";
+    std::cout << "2. Customer\n";
 
 }
 void admindisplay()
@@ -240,9 +240,48 @@ void admindisplay()
     cout << "Welcome to restaurant management system \n";
     cout << "1. View Oders.\n";
     cout << "2. Delete Oders.\n";
-    cout << "3. Add Oders.\n";
+    //cout << "3. Add Oders.\n";
 
 }
+
+/*void addAdminOrder(order* head_order){
+    orderNumber++;
+    struct order* temp = head_order;
+
+    if(temp==NULL){
+
+    }
+    else{
+        while(temp !=NULL){
+            orderArray[orderNumber] = temp;
+            orderArray[orderNumber]->next = NULL;
+        }
+    }
+
+}
+
+
+void displayAdminOrder() {
+
+    struct order* temp = orderArray[1];
+    //struct order* temp1 = NULL;
+
+    if (orderNumber == 0)
+    {
+        std::cout << "List EMpty" << std::endl;
+    }
+    else
+    {
+        while (temp != NULL)
+        {
+            std::cout << temp->foodname << "\t" << temp->price << "\t" << temp->quantity << "\t" << temp->price * temp->quantity << std::endl;
+            orderNumber++;
+            temp = orderArray[orderNumber];
+        }
+
+    }
+};*/
+
 void admin()
 {
     admindisplay();
@@ -262,10 +301,10 @@ void admin()
         //deleteorder(heado, data_elem);
         admin();
         break;
-    case 3:
+    /*case 3:
         //addlist();
         admin();
-        break;
+        break;*/
 
     default:
         cout << "Please choose wisely \n";
@@ -296,5 +335,4 @@ int main()
         main();
         break;
     }
-
 }
